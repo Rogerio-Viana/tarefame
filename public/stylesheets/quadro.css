@@ -1,0 +1,75 @@
+.conteudo-pagina {
+    display: block;
+    max-width: 80% !important;
+}
+
+.conteudo-pagina.redefinir-tamanho {
+    margin: auto;
+    display: block;
+    max-width: 80% !important;
+}
+
+.tarefas .cartao-tarefa {
+    width: auto;
+}
+
+.tarefas .cartao-tarefa .titulo {
+    margin-bottom: 5px;
+}
+
+.tarefas .cartao-tarefa .info-tarefa {
+    display: flex;
+}
+
+.conteudo-info-adicionais .tab-imagens img {
+    max-width: 100%;
+}
+
+.conteudo-info-adicionais .tab-imagens .negative.button {
+    font-size: xx-small;
+}
+
+.modal.modal-img h1 {
+    text-align: center;
+}
+
+.modal.modal-img img {
+    margin: auto;
+}
+
+.quadroImgTarefa .ui.card .extra.content {
+    margin-top: 10px;
+}
+
+.quadroImgTarefa .ui.card img {
+    height: 100px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+}
+
+.conteudo-pagina .ui.basic.button:hover {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+.content-vazio::before {
+    content: ".";
+    color: transparent !important;
+}
+
+.links-salvos .link {
+    margin-top: 10px;
+}
+
+.links-salvos .link i {
+    color: red;
+    cursor: pointer;
+}
+
+.links-salvos .link .endereco {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #4183c4;
+    text-decoration: none;
+}

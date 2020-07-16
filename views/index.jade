@@ -1,0 +1,42 @@
+extends layout
+
+block css  
+    link(rel="stylesheet", href="/stylesheets/index.css")
+
+block script
+  script(src="/javascripts/index.js")
+
+block content
+  
+  div.ui.container.index
+    div.index-titulo
+      div.ui.center.aligned.container
+        h1.ui.header Tarefa-me!
+          div.sub.header Crie e gerencie sua lista de tarefas e afazeres
+
+      
+      div.ui.container.index-register
+        h4.ui.dividing.header Criar/Entrar
+        form(action="/", method="post", class="ui form")
+          div.two.fields
+            div.field
+              label Quadro
+              input(name="nome", type="text", placeholder="Nome do quadro", value=quadro)
+            div.field
+              label Senha
+              input(name="senha", type="password" placeholder="Senha do quadro")
+          button(type="submit", class="ui button primary btn-index-register") Criar/Entrar
+          div.ui.error.message
+          
+          if (loginErro == 'true')
+            div.ui.yellow.message
+              div.header Erros de login
+              ul.list
+                li Nome do quadro errado.
+                li Senha do quadro errado.
+
+          if(quadroErro == 'true')
+            div.ui.yellow.message
+              div.header Erros de quadro
+              ul.list
+                li Autenticação não realizada.

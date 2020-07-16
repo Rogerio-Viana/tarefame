@@ -1,0 +1,144 @@
+extends layout
+
+block css  
+    link(rel="stylesheet", href="/stylesheets/quadro.css")
+
+block script
+    script(src="/javascripts/quadro.js")
+
+block content
+    //- div.ui.top.attached.botao.menu
+        a.item Menu
+            i
+    div.ui.attached.conteudo
+        //- div.ui.sidebar.cor-cinza.vertical.menu.visible
+            a.item.active Caixa de entrada
+            a.item Tarefas Finalizadas
+            
+            //- div.fluid.ui.accordion
+                div.title
+                    a(style="padding: 13px 16px", class="item") Projetos
+                        i(style="vertical-align: middle; margin-left: 60%;").material-icons add
+                div(style="padding: 0px 13px 0px 13px", class="content")
+                    span
+                    a.item Tarefas
+                    a.item Pessoal
+                    a.item Trabalho
+
+
+
+        div.pusher.conteudo-pagina.redefinir-tamanho
+            div.ui.basic.segment
+                //- h3.ui.header Caixa de Entrada
+                    div.sub.header Tarefas
+
+                div.tarefas
+                    form(action=info.urlQuadro, method="post", id="form-criar-tarefa", class="ui form")
+                        div.ui.raised.card.link.cartao-tarefa
+                            div.content
+                                div.meta.titulo
+                                    span.category Criar Tarefa
+                                div.desription
+                                        div.field
+                                            input(id="nome", name="nome", type="text", placeholder="O que você precisa fazer?", key)
+                            div.extra.content
+
+                                div(class="left floated info-tarefa")
+                                    div(class="floated", style="margin-right: 15px;")
+                                        input(class="field",type="text", id="data", name="data" placeholder="Data")
+
+                                div.right.floated 
+                                    button(type="button", class="ui inverted basic negative button", onclick="document.getElementById('form-criar-tarefa').reset()") Cancelar
+                                    button(type="submit", class="ui inverted basic positive button", id="add-tarefa") Adicionar Tarefa
+
+
+
+                    div.ui.modal.modal-info-add
+                        div(class="header", id="modal-info-add-title") 
+                        div.content
+                            div.ui.grid
+                                div.four.wide.column
+                                    div.ui.vertical.fluid.tabular.menu
+                                        a(class="item active", data-tab="tab-imagens") Imagens
+                                        a(class="item", data-tab="tab-links") Links
+                                        //- a(class="item", data-tab="tab-texto") Texto
+
+
+                                div.twelve.wide.stretched.column.scrolling.conteudo-info-adicionais
+                                    div.ui.segment 
+                                        div(class="ui tab active tab-imagens" data-tab="tab-imagens") 
+                                            div.ui.container
+                                                input(type="text", hidden, id="modal-quadro-id", value="")
+                                                input(type="text", hidden, id="modal-quadro-tarefa-id", value="")
+                                                form(onsubmit="return false;")
+                                                form(action="/imagem/", id="form-up-img", method="post", enctype="multipart/form-data")
+                                                    button(id="button-up-img", class="ui basic positive button", type="button", onclick="$('#input-up-img').click()") + Adicionar Imagem
+                                                    input(id="input-up-img", name="image", hidden, type="file", accept="image/x-png,image/gif,image/jpeg")
+                                                    
+                                            h4.header Imagens enviadas
+                                            div.ui.divider
+                                            div(class="ui  grid container quadroImgTarefa", id="quadroImgTarefa")
+
+                                                //- Insetar imagens e colocar as imagens da tarefas dinamicamente
+                                            
+
+                                            div.ui.basic.modal.modal-img
+                                                div.header
+                                                    h1(id="modal-img-title") 
+                                                div.image.content.center.alinged
+                                                    img(id="modal-img-img", src="", alt="")
+                                                div.actions
+                                                    button(type="button", class="ui basic ok button") Voltar
+                                                                
+
+                                        div(class="ui tab" data-tab="tab-links", id="tab-links")
+                                            div.ui.segment
+                                                div.ui.form.grid
+                                                    div(class="five wide column ")
+                                                        label Assunto
+                                                        input(type="text" id="assunto" name="assunto" placeholder="Assunto")
+                                                    div(class="nine wide column" style="padding-left: inherit;")
+                                                        label Endereço  
+                                                        input(type="text" placeholder="Endereço" id="endereco" name="endereco")
+                                                    div(class="two wide column" style="padding-left: inherit;")
+                                                        label(class="content-vazio" style="")
+                                                        h4(type="button" onclick="salvarLinktarefaQuadro()" id="add-link" class="ui basic green button" style="width: 140%;") +
+
+                                                h4.ui.header Links Salvos
+                                                div.ui.divider
+                                                div(id="links-salvos" class="links-salvos")
+
+                                        //- div(class="ui tab" data-tab="tab-texto") 333333
+                                        
+                        div.actions
+                            button(type="button", class="ui basic ok button") Voltar
+
+                    div.tarefas-salvas
+                        div.ui.divider
+                        div.ui.header Tarefas Existentes
+                            div.sub.header Finalize suas tarefas
+
+                        div(class="ui cards centered  grid", id="tarefas-salvas")
+                                each q in quadro.quadros
+                                    div(id="tarefa-#{q.id}" class="ui link card sixteen wide mobile sixteen wide tablet five wide computer column")
+                                        div.content
+                                            div.header= q.nome 
+                                            div.description 
+                                                span Data - #{q.data}
+                                        div.extra.content
+                                            div.ui.two.buttons
+                                                div(onclick="infoAdicionais($(this), '#{quadro.nome}', #{q.id})" class="ui basic primary button info-adicionais", data-frame=quadro.nome, data-id=q.id) informações
+                                                div(onclick="concluirTarefa('#{quadro.nome}', #{q.id})").ui.basic.green.button Concluir
+
+
+                            
+                
+
+
+
+
+                
+                    
+
+
+                
