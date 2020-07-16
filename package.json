@@ -2,6 +2,7 @@
     "name": "lista-tarefas",
     "version": "0.0.0",
     "private": true,
+    "main": "www.js",
     "scripts": {
         "start": "node ./bin/www"
     },
