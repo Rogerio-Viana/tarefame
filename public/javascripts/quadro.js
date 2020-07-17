@@ -229,11 +229,15 @@ function inserirImagemUpada(img) {
 
 function inserirTarefaSalvaTela(quadro, tarefa) {
 
+    let data = 'Não definida'
+    if (tarefa.data)
+        data = tarefa.data
+
     let tarefaTemplate = `
     <div class="card sixteen wide mobile sixteen wide tablet five wide computer column">
         <div class="content"><div class="header">${tarefa.nome}</div>
         <div class="description"> 
-            <span>Data - ${tarefa.data}</span></div>
+            <span>Data - ${data}</span></div>
         </div>
         <div class="extra content">
             <div class="ui two buttons">

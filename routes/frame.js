@@ -45,7 +45,6 @@ router.post('/:id/save', function(req, res, next) {
         data: req.body.data
     }
 
-
     res.status(200).send(QuadroAcoes.salvarTarefa(req.params.id, dados))
 
 });
