@@ -1,0 +1,31 @@
+{
+  "nome": "",
+  "dataCriacao": "2020-07-17T01:37:02.584Z",
+  "quadros": [
+    {
+      "id": 0,
+      "nome": "q1",
+      "data": "",
+      "criacao": "2020-07-17T01:37:08.551Z",
+      "ativo": true
+    }
+  ],
+  "imagens": [
+    {
+      "id": 1,
+      "tarefaId": 0,
+      "name": "MatureHarshGrebe-small.gif",
+      "nameSave": "img_0",
+      "path": "/imagem/img_0.gif"
+    },
+    {
+      "id": 2,
+      "tarefaId": 0,
+      "name": "MatureHarshGrebe-small.gif",
+      "nameSave": "img_0",
+      "path": "/images/img_0.gif"
+    }
+  ],
+  "links": [],
+  "textos": []
+}

@@ -8,7 +8,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/:imgId', function(req, res, next) {
-    res.sendFile('./public/images/' + req.params.imgId)
+    console.log('Img: dirname - ' + __dirname + ' ------- ' + req.params.imgId)
+        // res.sendFile('index.html', { root: __dirname })
+    res.sendFile(req.params.imgId, { root: './public/images/' })
 });
 
 router.get('/:quadro/:tarefaId/:idImg/deleteImg', function(req, res) {
@@ -44,7 +46,7 @@ router.post('/:quadro/:tarefaId', function(req, res) {
                 });
 
             console.log('Type img: ', image.type)
-            const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/imagem/' + nameImg + '.' + image.type.split('/')[1] }
+            const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/images/' + nameImg + '.' + image.type.split('/')[1] }
             QuadroAcoes.salvarImagemQuadroTarefa(req.params.quadro, req.params.tarefaId, dadosImg);
             res.send(dadosImg)
         }
