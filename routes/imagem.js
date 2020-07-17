@@ -7,8 +7,8 @@ const QuadroAcoes = require('../public/class/QuadroAcoes');
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
+router.get('/:imgId', function(req, res, next) {
+    res.sendFile('./public/images/' + req.params.imgId)
 });
 
 router.get('/:quadro/:tarefaId/:idImg/deleteImg', function(req, res) {
@@ -30,7 +30,7 @@ router.post('/:quadro/:tarefaId', function(req, res) {
         var image = files.image;
         var image_upload_path_old = image.path;
         var image_upload_path_new = './public/images/';
-        var image_upload_name = nameImg // image.name;
+        var image_upload_name = nameImg + '.' + image.type.split('/')[1] // image.name;
         var image_upload_path_name = image_upload_path_new + image_upload_name;
 
         if (fs.existsSync(image_upload_path_new)) {
@@ -43,8 +43,8 @@ router.post('/:quadro/:tarefaId', function(req, res) {
                     }
                 });
 
-
-            const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/images/' + nameImg }
+            console.log('Type img: ', image.type)
+            const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/imagem/' + nameImg + '.' + image.type.split('/')[1] }
             QuadroAcoes.salvarImagemQuadroTarefa(req.params.quadro, req.params.tarefaId, dadosImg);
             res.send(dadosImg)
         }
