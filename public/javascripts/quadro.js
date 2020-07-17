@@ -230,8 +230,9 @@ function inserirImagemUpada(img) {
 function inserirTarefaSalvaTela(quadro, tarefa) {
 
     let data = 'Não definida'
-    if (tarefa.data)
+    if (tarefa.data) {
         data = tarefa.data
+    }
 
     let tarefaTemplate = `
     <div class="card sixteen wide mobile sixteen wide tablet five wide computer column">

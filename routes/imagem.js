@@ -18,13 +18,20 @@ router.get('/:quadro/:tarefaId/:idImg/deleteImg', function(req, res) {
 
 router.post('/:quadro/:tarefaId', function(req, res) {
     var form = new formidable.IncomingForm();
+    var totalFiles = 0
+
+    fs.readdir('./public/images/', function(error, files) {
+        totalFiles = files.length + 1;
+    });
+
+    let nameImg = 'img_' + totalFiles
 
     form.parse(req, function(err, fields, files) {
         var image = files.image;
         var image_upload_path_old = image.path;
         var image_upload_path_new = './public/images/';
-        var image_upload_name = image.name;
-        var image_upload_path_name = image_upload_path_new + image_upload_name.replace(' ', '_');
+        var image_upload_name = nameImg // image.name;
+        var image_upload_path_name = image_upload_path_new + image_upload_name;
 
         if (fs.existsSync(image_upload_path_new)) {
             fs.rename(
@@ -37,7 +44,7 @@ router.post('/:quadro/:tarefaId', function(req, res) {
                 });
 
 
-            const dadosImg = { "name": image.name, "nameSave": image_upload_name.replace(' ', '_'), "path": '/images/' + image_upload_name.replace(' ', '_') }
+            const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/images/' + nameImg }
             QuadroAcoes.salvarImagemQuadroTarefa(req.params.quadro, req.params.tarefaId, dadosImg);
             res.send(dadosImg)
         }
