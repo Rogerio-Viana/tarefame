@@ -127,8 +127,8 @@ block content
                                                 span Data - #{q.data}
                                         div.extra.content
                                             div.ui.two.buttons
-                                                div(onclick="infoAdicionais($(this), '#{quadro.nome}', #{q.id})" class="ui basic primary button info-adicionais", data-frame=quadro.nome, data-id=q.id) informações
-                                                div(onclick="concluirTarefa('#{quadro.nome}', #{q.id})").ui.basic.green.button Concluir
+                                                div(onclick="infoAdicionais($(this), '#{info.nomeQuadro}', #{q.id})" class="ui basic primary button info-adicionais", data-frame=info.nomeQuadro, data-id=q.id) informações
+                                                div(onclick="concluirTarefa('#{info.nomeQuadro}', #{q.id})").ui.basic.green.button Concluir
 
 
                             

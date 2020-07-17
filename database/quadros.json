@@ -1,35 +1,3 @@
 {
-  "quadros": [
-    {
-      "nome": "qwe",
-      "senha": "qwe",
-      "data": "2020-07-04T21:34:22.107Z",
-      "ativo": true
-    },
-    {
-      "nome": "qwe1",
-      "senha": "",
-      "data": "2020-07-04T21:36:26.445Z",
-      "ativo": true
-    },
-    {
-      "nome": "123",
-      "senha": "123",
-      "data": "2020-07-04T22:41:48.487Z",
-      "ativo": true
-    },
-    {
-      "nome": "q q",
-      "senha": "123",
-      "data": "2020-07-04T22:42:28.954Z",
-      "ativo": true
-    },
-    {
-      "nome": "1 1",
-      "senha": "1",
-      "data": "2020-07-04T22:46:26.827Z",
-      "ativo": true,
-      "id": "1_1"
-    }
-  ]
+    "quadros": []
 }

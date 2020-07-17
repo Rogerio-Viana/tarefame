@@ -15,7 +15,8 @@ router.get('/:id', function(req, res, next) {
         const quadro = QuadroAcoes.buscarQuadro(quadroAuth)
         const infoExtra = {
             hoje: new Date().toLocaleDateString(),
-            urlQuadro: '/frame/' + req.params.id + '/save'
+            urlQuadro: '/frame/' + req.params.id + '/save',
+            nomeQuadro: req.params.id
         };
 
         res.render('quadro', { quadro: quadro, info: infoExtra });
@@ -27,6 +28,7 @@ router.get('/:id', function(req, res, next) {
 
 router.get('/:id/:tarefa', function(req, res, next) {
     const dadosTarefa = QuadroAcoes.buscarTarefaQuadro(req.params.id, req.params.tarefa)
+    console.log('Chamando aqui')
     res.status(200).send(dadosTarefa)
 });
 

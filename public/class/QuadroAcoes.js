@@ -2,7 +2,7 @@ exports.criarQuadro = function(n) {
     const db = conexaoQuadro(n)
 
     db.defaults({
-            nome,
+            nome: '',
             dataCriacao: new Date(),
             quadros: [],
             imagens: [],
@@ -105,6 +105,15 @@ function montarQuadro(db) {
 
     let quadroOrdenacao = db.get('quadros').filter({ ativo: true }).value()
 
+    quadroOrdenacao = quadroOrdenacao.map(function(quadro) {
+
+        if (quadro.data == "" || quadro.data == null || quadro.data == undefined) {
+            quadro.data = 'Não definida'
+        }
+
+        return quadro
+    })
+
     quadro.quadros = quadroOrdenacao.sort((q1, q2) => {
         let d1 = q1.data
         let d2 = q2.data
@@ -128,11 +137,23 @@ function montarQuadro(db) {
 }
 
 function conexaoQuadro(n) {
-    const nome = n.replace(' ', '_')
 
+    const fs = require('fs')
     const low = require('lowdb')
     const FileSync = require('lowdb/adapters/FileSync')
-    const adapter = new FileSync(`database/quadros/${nome}.json`)
+
+    n = n.replace(' ', '_')
+
+    if (!fs.existsSync(`database/quadros/${n}.json`)) {
+        fs.writeFile(`database/quadros/${n}.json`, '', function(err) {
+            if (err) throw err;
+            console.log('File is created successfully.');
+        });
+    }
+
+
+
+    const adapter = new FileSync(`database/quadros/${n}.json`)
     const db = low(adapter)
 
     return db
