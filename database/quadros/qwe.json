@@ -1,0 +1,45 @@
+{
+  "nome": "",
+  "dataCriacao": "2020-07-26T22:14:57.279Z",
+  "quadros": [
+    {
+      "id": 0,
+      "nome": "qwe",
+      "data": "",
+      "criacao": "2020-07-26T22:15:05.907Z",
+      "ativo": true
+    }
+  ],
+  "imagens": [
+    {
+      "id": 1,
+      "tarefaId": 0,
+      "name": "Anotação 2020-06-12 203147.png",
+      "nameSave": "img_3",
+      "path": "/images/img_3.png"
+    },
+    {
+      "id": 2,
+      "tarefaId": 0,
+      "name": "morre engasgada.jpg",
+      "nameSave": "img_4",
+      "path": "/images/img_4.jpeg"
+    },
+    {
+      "id": 3,
+      "tarefaId": 0,
+      "name": "gostosa.png",
+      "nameSave": "img_5",
+      "path": "/images/img_5.png"
+    },
+    {
+      "id": 4,
+      "tarefaId": 0,
+      "name": "MatureHarshGrebe-small.gif",
+      "nameSave": "img_6",
+      "path": "/images/img_6.gif"
+    }
+  ],
+  "links": [],
+  "textos": []
+}

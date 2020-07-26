@@ -52,6 +52,8 @@ router.post('/:quadro/:tarefaId', function(req, res) {
             res.send(dadosImg)
         }
     });
+
+
 });
 
 module.exports = router;
