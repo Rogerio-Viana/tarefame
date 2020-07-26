@@ -302,7 +302,7 @@ function inserirLinkTarefaTela(link) {
     <div class="link" id="div-link-${link.id}">
         <span>${link.assunto} - <i onclick="deletarLinktarefaQuadro('${link.id}')" class="trash icon"></i></span>
         <div class="endereco">
-            <a href="${link.endereco}" target="blank">${link.endereco}</a>
+            <a href="https://${link.endereco}" target="blank">${link.endereco}</a>
         </div>
     </div>
     `

@@ -21,12 +21,13 @@ router.get('/:quadro/:tarefaId/:idImg/deleteImg', function(req, res) {
 router.post('/:quadro/:tarefaId', function(req, res) {
     var form = new formidable.IncomingForm();
     var totalFiles = 0
+    let nameImg = 'img_'
 
     fs.readdir('./public/images/', function(error, files) {
         totalFiles = files.length + 1;
+        nameImg += totalFiles
     });
 
-    let nameImg = 'img_' + totalFiles
 
     form.parse(req, function(err, fields, files) {
         var image = files.image;
