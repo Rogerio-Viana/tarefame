@@ -1,9 +1,10 @@
 var express = require('express');
 var formidable = require('formidable');
-var fs = require('fs');
 const QuadroAcoes = require('../public/class/QuadroAcoes');
+var mv = require('mv');
 
 
+var fs = require('fs');
 var router = express.Router();
 
 /* GET home page. */
@@ -19,6 +20,7 @@ router.get('/:quadro/:tarefaId/:idImg/deleteImg', function(req, res) {
 });
 
 router.post('/:quadro/:tarefaId', function(req, res) {
+
     var form = new formidable.IncomingForm();
     var totalFiles = 0
     let nameImg = 'img_'
@@ -37,14 +39,23 @@ router.post('/:quadro/:tarefaId', function(req, res) {
         var image_upload_path_name = image_upload_path_new + image_upload_name;
 
         if (fs.existsSync(image_upload_path_new)) {
-            fs.rename(
-                image_upload_path_old,
-                image_upload_path_name,
-                function(err) {
-                    if (err) {
-                        console.log('Deu merda na hora de mover a imagem! - Erro: ', err);
-                    }
-                });
+
+
+            mv(image_upload_path_old, image_upload_path_name, function(err) {
+                if (err) {
+                    console.log('Deu merda na hora de mover a imagem! - Erro: ', err);
+                }
+            });
+
+
+            // fs.rename(
+            //     image_upload_path_old,
+            //     image_upload_path_name,
+            //     function(err) {
+            //         if (err) {
+            //             console.log('Deu merda na hora de mover a imagem! - Erro: ', err);
+            //         }
+            //     });
 
             console.log('Type img: ', image.type)
             const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/images/' + nameImg + '.' + image.type.split('/')[1] }
