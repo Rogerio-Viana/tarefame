@@ -47,17 +47,6 @@ router.post('/:quadro/:tarefaId', function(req, res) {
                 }
             });
 
-
-            // fs.rename(
-            //     image_upload_path_old,
-            //     image_upload_path_name,
-            //     function(err) {
-            //         if (err) {
-            //             console.log('Deu merda na hora de mover a imagem! - Erro: ', err);
-            //         }
-            //     });
-
-            console.log('Type img: ', image.type)
             const dadosImg = { "name": image.name, "nameSave": nameImg, "path": '/images/' + nameImg + '.' + image.type.split('/')[1] }
             QuadroAcoes.salvarImagemQuadroTarefa(req.params.quadro, req.params.tarefaId, dadosImg);
             res.send(dadosImg)
