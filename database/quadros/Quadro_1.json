@@ -1,0 +1,64 @@
+{
+  "nome": "",
+  "dataCriacao": "2021-06-05T23:49:55.052Z",
+  "quadros": [
+    {
+      "id": 0,
+      "nome": "Lavar louça",
+      "data": "06/06/2021",
+      "criacao": "2021-06-05T23:50:21.375Z",
+      "ativo": true
+    },
+    {
+      "id": 1,
+      "nome": "Limpar Quintal",
+      "data": "07/06/2021",
+      "criacao": "2021-06-06T12:58:39.738Z",
+      "ativo": true
+    },
+    {
+      "id": 2,
+      "nome": "Varrer calçada",
+      "data": "07/06/2021",
+      "criacao": "2021-06-06T12:58:55.536Z",
+      "ativo": false
+    }
+  ],
+  "imagens": [
+    {
+      "id": 1,
+      "tarefaId": 0,
+      "name": "localstorage-feature-1280x720.png",
+      "nameSave": "img_9",
+      "path": "/images/img_9.png"
+    },
+    {
+      "id": 2,
+      "tarefaId": 0,
+      "name": "igredientes.png",
+      "nameSave": "img_10",
+      "path": "/images/img_10.png"
+    }
+  ],
+  "links": [
+    {
+      "id": 1,
+      "tarefaId": 0,
+      "assunto": "GitHub",
+      "endereco": "https://github.com/"
+    },
+    {
+      "id": 2,
+      "tarefaId": 0,
+      "assunto": "Ubuntu Wiki",
+      "endereco": "wiki.ubuntu.com/"
+    },
+    {
+      "id": 3,
+      "tarefaId": 0,
+      "assunto": "Google",
+      "endereco": "https://google.com/"
+    }
+  ],
+  "textos": []
+}
